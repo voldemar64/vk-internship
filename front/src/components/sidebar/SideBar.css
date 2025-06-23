@@ -1,0 +1,89 @@
+.side-bar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    z-index: 3;
+    inset: 0 0 0 32.5%;
+    padding: 159px 0 92px;
+    background-color: #fff;
+    visibility: hidden;
+    opacity: 0;
+    transition:
+            visibility 0.4s,
+            opacity 0.4s;
+    border-left: 1px solid #2b2d42;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.side-bar_visible {
+    visibility: visible;
+    opacity: 1;
+}
+
+.side-bar__close {
+    padding: 0;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: 23px;
+    right: 23px;
+    width: 22px;
+    height: 22px;
+    background: center center no-repeat url("../../images/close.svg");
+    transition: opacity 0.4s ease-in;
+}
+
+.side-bar__close:hover {
+    opacity: 0.6;
+}
+
+.side-bar__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+}
+
+.side-bar__button {
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+    color: #2b2d42;
+    transition: opacity 0.4s ease-in;
+}
+
+.side-bar__button_active {
+    text-decoration: underline;
+}
+
+.side-bar__container > .side-bar__button:hover {
+    text-decoration: #8b8b8b underline;
+}
+
+.side-bar__account {
+    padding: 0;
+    margin: 0;
+}
+
+.side-bar__img {
+    padding: 8px;
+    width: 12px;
+    height: 14px;
+    border-radius: 4px;
+}
+
+.side-bar__button_profile {
+    display: flex;
+    gap: 17px;
+}
+
+@media screen and (max-width: 767px) {
+    .side-bar {
+        inset: 0;
+    }
+}

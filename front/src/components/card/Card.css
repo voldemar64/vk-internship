@@ -1,0 +1,114 @@
+.card {
+    position: relative;
+    background-color: #fff;
+    width: 360px;
+    padding-bottom: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    border-radius: 10px;
+    box-shadow:
+            0 4px 8px rgba(0, 0, 0, 0.2),
+            0 6px 20px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s;
+}
+
+.card:hover {
+    box-shadow:
+            0 4px 8px rgba(0, 0, 0, 0.4),
+            0 6px 20px rgba(0, 0, 0, 0.25);
+    transition: box-shadow 0.2s;
+}
+
+.card__container {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 18px;
+}
+
+.card__heading {
+    font-family: "Inter", "Arial", sans-serif;
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 29px;
+    color: #2b2d42;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: calc(100% - 50px);
+    margin: 0;
+}
+
+.card__duration {
+    padding: 0;
+    margin: 0;
+    font-size: 13px;
+    line-height: 18px;
+    color: #8b8b8b;
+}
+
+.card__photo {
+    box-sizing: border-box;
+    object-fit: cover;
+    width: 100%;
+    height: 282px;
+    border-radius: 10px 10px 0 0;
+    cursor: pointer;
+    transition: opacity 0.3s linear;
+}
+
+.card__photo:hover {
+    opacity: 0.8;
+    transition: opacity 0.2s linear;
+}
+
+.card__like-button {
+    background: center center no-repeat url("../../images/like.svg")
+    transparent;
+    width: 33px;
+    height: 24px;
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.3s linear;
+}
+
+.card__like-button:hover {
+    opacity: 0.5;
+    transition: opacity 0.2s linear;
+}
+
+.card__like-button_active {
+    background: center center no-repeat url("../../images/like_active.svg");
+}
+
+@media screen and (max-width: 1279px) {
+    .card {
+        width: 342px;
+    }
+
+    .card__image {
+        width: 342px;
+        height: 190px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .card {
+        width: 300px;
+        gap: 14px;
+        padding-bottom: 14px;
+    }
+
+    .card__title {
+        font-size: 12px;
+    }
+
+    .card__duration {
+        font-size: 10px;
+    }
+
+    .card__image {
+        width: 300px;
+        height: 168px;
+    }
+}

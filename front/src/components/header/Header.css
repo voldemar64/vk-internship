@@ -1,0 +1,104 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #2196F3;
+    margin: 0;
+    padding: 18px 70px;
+    position: relative;
+    font-weight: 400;
+}
+
+.header__container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 10px;
+}
+
+.header__nav {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.header__logo:hover {
+    opacity: 0.5;
+}
+
+.header__link {
+    text-decoration: none;
+    color: #fff;
+    font-size: 13px;
+    line-height: 18px;
+    transition: opacity 0.3s linear;
+}
+
+.header__link_active {
+    text-decoration: underline;
+}
+
+.header__link_type_signin {
+    width: 76px;
+    height: 32px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #78bac1;
+    border-radius: 3px;
+}
+
+.header__link:hover {
+    opacity: 0.5;
+}
+
+.header__subtitle {
+    margin: 0;
+    padding: 0;
+}
+
+.header__button {
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+    background: center center url("../../images/menu-icon.svg");
+}
+
+@media screen and (max-width: 1279px) {
+    .header {
+        padding: 21px 30px;
+    }
+
+    .header__link {
+        font-size: 12px;
+        line-height: 16px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .header {
+        padding: 18px 14px;
+    }
+
+    .header__container {
+        padding-bottom: 5px;
+    }
+
+    .header__link {
+        font-size: 10px;
+    }
+
+    .header__link_type_signin {
+        width: 54px;
+        height: 26px;
+    }
+
+    .header__button {
+        width: 40px;
+        height: 43px;
+    }
+}

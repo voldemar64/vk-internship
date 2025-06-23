@@ -1,0 +1,68 @@
+# Node.js dependencies
+front/node_modules/
+api/node_modules/
+
+# Build output
+front/build/
+front/dist/
+api/build/
+api/dist/
+api/out/
+
+# TypeScript cache
+front/*.tsbuildinfo
+api/*.tsbuildinfo
+
+# Environment variables
+front/.env
+front/.env.*
+api/.env
+api/.env.*
+.env
+.env.*
+
+# Logs
+logs/
+*.log
+front/*.log
+api/*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Coverage reports
+front/coverage/
+api/coverage/
+
+# VSCode and IDE settings
+.vscode/
+.idea/
+front/.vscode/
+api/.vscode/
+front/.idea/
+api/.idea/
+
+# MacOS system files
+.DS_Store
+
+# Docker overrides and ignores (если есть)
+docker-compose.override.yml
+*.dockerignore
+
+# TypeORM config and migrations (если не нужны в репозитории)
+api/ormconfig.json
+api/migration/*.js
+api/migration/*.ts
+
+# Jest testing cache
+front/jest-cache/
+api/jest-cache/
+front/jest-report/
+api/jest-report/
+
+# Miscellaneous
+*.tgz
+*.local
+
+# Editor swap/backup files
+*.sw?

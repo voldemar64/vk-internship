@@ -4,7 +4,7 @@ interface ApiResponse {
   data?: any;
 }
 
-class PostsApi {
+class LikesApi {
   private readonly _baseUrl: string;
   private readonly _headers: HeadersInit;
 
@@ -32,22 +32,6 @@ class PostsApi {
     return jwt
       ? { Authorization: `Bearer ${jwt}`, ...this._headers }
       : { ...this._headers };
-  }
-
-  public async getInitialPosts(): Promise<ApiResponse> {
-    try {
-      const res = await fetch(`${this._baseUrl}/items`, {
-        method: "GET",
-        headers: this._getHeaders(),
-      });
-      return this._handleRes(res);
-    } catch (err) {
-      console.log(`Не удалось получить начальные посты: ${err}`);
-      return {
-        success: false,
-        message: `Не удалось получить начальные посты: ${err}`,
-      };
-    }
   }
 
   public async getSavedPosts(userId: string): Promise<ApiResponse> {
@@ -104,9 +88,9 @@ class PostsApi {
   }
 }
 
-const postsApi = new PostsApi("http://localhost:8080", {
+const likesApi = new LikesApi("http://localhost:8080", {
   Accept: "application/json",
   "Content-Type": "application/json",
 });
 
-export default postsApi;
+export default likesApi;

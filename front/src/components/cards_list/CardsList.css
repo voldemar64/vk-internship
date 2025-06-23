@@ -1,0 +1,42 @@
+.posts {
+    display: flex;
+    flex-direction: column;
+}
+
+.cards {
+    margin: 0;
+    list-style: none;
+    padding: 70px 70px 166px;
+    display: grid;
+    justify-content: center;
+    gap: 32px;
+    grid-template-columns: repeat(3, 360px);
+}
+
+.text {
+    align-self: center;
+    text-align: center;
+    color: #2b2d42;
+    margin: 0 0 263px;
+    width: 366px;
+}
+
+@media screen and (max-width: 1279px) {
+    .cards {
+        padding: 70px 30px 50px;
+        grid-template-columns: repeat(2, 342px);
+        gap: 35px 24px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .cards {
+        padding: 40px 10px 40px;
+        grid-template-columns: repeat(1, 300px);
+        gap: 16px;
+    }
+
+    .text {
+        width: 300px;
+    }
+}
