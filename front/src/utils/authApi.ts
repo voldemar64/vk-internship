@@ -86,6 +86,21 @@ class AuthApi {
       return { success: false, message: `Не удалось авторизоваться: ${err}` };
     }
   }
+
+  public async getUserInfo(): Promise<ApiResponse> {
+    try {
+      const res = await fetch(`${this._baseUrl}/users/me`, {
+        headers: this._getHeaders(),
+      });
+      return this._handleRes(res);
+    } catch (err) {
+      console.log(`Не удалось получить информацию о пользователе: ${err}`);
+      return {
+        success: false,
+        message: `Не удалось получить информацию о пользователе: ${err}`,
+      };
+    }
+  }
 }
 
 const authApi = new AuthApi("http://localhost:5000", {

@@ -38,7 +38,7 @@ class CatsApi {
 
   public async getCats(limit: number = 10): Promise<ApiResponse<Cat[]>> {
     try {
-      const res = await fetch(`${this._baseUrl}/images/search?limit=${limit}`, {
+      const res = await fetch(`${this._baseUrl}/images/search?limit=${limit}&api_key=${this._apiKey}`, {
         method: "GET",
         headers: this._headers
       });

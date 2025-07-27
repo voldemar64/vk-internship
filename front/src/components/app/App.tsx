@@ -13,7 +13,6 @@ import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
 import { useWindowWidth } from "../../utils/windowWidth";
 import authApi from "../../utils/authApi";
-import mainApi from "../../utils/mainApi";
 import likesApi from "../../utils/likesApi";
 import catsApi from '../../utils/catsApi';
 
@@ -62,7 +61,7 @@ function App() {
 
   useEffect(() => {
     if (token) {
-      mainApi
+      authApi
         .getUserInfo()
         .then((res: ApiResponse) => {
           if (res) {
@@ -85,16 +84,14 @@ function App() {
   }, [token]);
 
   useEffect(() => {
-    if (loggedIn) {
-      catsApi
-        .getCats()
-        .then((res: ApiResponse) => {
-          localStorage.setItem("posts", JSON.stringify(res.data));
-          const allPosts = JSON.parse(localStorage.getItem("posts") || "[]");
-          setLocalApiPosts(allPosts);
-        })
-        .catch((err: any) => console.log(`Ошибка при получении объявлений: ${err}`));
-    }
+    catsApi
+      .getCats()
+      .then((res: ApiResponse) => {
+        localStorage.setItem("posts", JSON.stringify(res.data));
+        const allPosts = JSON.parse(localStorage.getItem("posts") || "[]");
+        setLocalApiPosts(allPosts);
+      })
+      .catch((err: any) => console.log(`Ошибка при получении объявлений: ${err}`));
   }, []);
 
   useEffect(() => {
@@ -183,7 +180,7 @@ function App() {
     const liked = savedPosts.some((i: PostSchema) => post._id === i._id);
 
     if (!liked) {
-      postsApi
+      likesApi
         .likePost(post._id, currentUser!._id)
         .then((res: ApiResponse) => {
           const newSavedPosts = [...savedPosts, res.data];
@@ -209,7 +206,7 @@ function App() {
   }
 
   function handlePostDislike(post: PostSchema): void {
-    postsApi
+    likesApi
       .dislikePost(post._id, currentUser!._id)
       .then((res: ApiResponse) => {
         const newSavedPosts = savedPosts.filter(
